@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!--
+    Name:         Fatima Ah mad
+  	Course: 	  235.01
+  	Homework: 	  #2
+  	Git-Hub:
+  -->
+
+    <title>Homework 2</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Yahtzee</h1>
+
+        <div class="content">
+            <div class="dice">
+                <img id="d1" src="HW2/pix/diceX0.gif" alt="" onclick="toggleFreeze(this)">
+                <img id="d2" src="HW2/pix/diceX0.gif" alt="" onclick="toggleFreeze(this)">
+                <img id="d3" src="HW2/pix/diceX0.gif" alt="" onclick="toggleFreeze(this)">
+                <img id="d4" src="HW2/pix/diceX0.gif" alt="" onclick="toggleFreeze(this)">
+                <img id="d5" src="HW2/pix/diceX0.gif" alt="" onclick="toggleFreeze(this)">
+            </div>
+
+            <div class="left">
+
+                <div class="slot">
+                    <b>1's</b>
+                    <input class="yahtzeeTracker" type="text">
+
+                </div>
+
+                <div class="slot">
+                    <b>2's</b>
+                    <input class="yahtzeeTracker" type="text">
+                </div>
+
+                <div class="slot">
+                    <b>3's</b>
+                    <input class="yahtzeeTracker" type="text">
+                </div>
+
+                <div class="slot">
+                    <b>4's</b>
+                    <input class="yahtzeeTracker" type="text">
+                </div>
+
+                <div class="slot">
+                    <b>5's</b>
+                    <input class="yahtzeeTracker" type="text">
+                </div>
+
+                <div class="slot">
+                    <b>6's</b>
+                    <input class="yahtzeeTracker" type="text">
+                </div>
+
+                <div class="slot">
+                    <b>Three of a kind</b>
+                    <input class="yahtzeeTracker" type="text">
+                </div>
+
+                <div class="slot">
+                    <b>Four of a kind</b>
+                    <input class="yahtzeeTracker" type="text">
+                </div>
+
+                <div class="slot">
+                    <b>Yahtzee</b>
+                    <input class="yahtzeeTracker" type="text">
+                </div>
+
+                <div class="slot">
+                    <b>Total</b>
+                    <input class="yahtzeeTracker" type="text">
+                </div>
+
+            </div>
+
+            <div class="right">
+                <div onclick="roll()" class="button">
+                    <b>Roll</b>
+                </div>
+
+                <div class="button2" onclick="newgame()">
+                    New game
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<script>
+    function roll() {
+        let rd1 = Math.round(Math.random(6)) + 1
+        let rd2 = Math.round(Math.random(6)) + 1
+        let rd3 = Math.round(Math.random(6)) + 1
+        let rd4 = Math.round(Math.random(6)) + 1
+        let rd5 = Math.round(Math.random(6)) + 1
+
+        let d1 = document.getElementById("d1")
+        if (d1.className != "frozen") {
+            d1.src = `HW2/pix/diceX${rd1}.gif`
+        }
+
+        let d2 = document.getElementById("d2")
+        if (d2.className != "frozen") {
+            d2.src = `HW2/pix/diceX${rd2}.gif`
+        }
+
+        let d3 = document.getElementById("d3")
+        if (d3.className != "frozen") {
+            d3.src = `HW2/pix/diceX${rd3}.gif`
+        }
+
+        let d4 = document.getElementById("d4")
+        if (d4.className != "frozen") {
+            d4.src = `HW2/pix/diceX${rd4}.gif`
+        }
+
+        let d5 = document.getElementById("d5")
+        if (d5.className != "frozen") {
+            d5.src = `HW2/pix/diceX${rd5}.gif`
+        }
+    }
+
+    function toggleFreeze(img) {
+        if (img.className == "frozen") {
+            img.className = ""
+
+            let originalsrc = img.src
+            originalsrc = originalsrc.replace(".gif", "")
+            let dicenumber = originalsrc.slice(-1)
+            img.src = `HW2/pix/diceX${dicenumber}.gif`
+
+            return
+        }
+
+        if (img.className == "") {
+            img.className = "frozen"
+
+            let originalsrc = img.src
+            originalsrc = originalsrc.replace(".gif", "")
+            let dicenumber = originalsrc.slice(-1)
+            img.src = `HW2/pix/dice${dicenumber}.gif`
+
+            return
+        }
+    }
+
+    function newgame() {
+        Array.from(document.getElementsByClassName("yahtzeeTracker")).forEach(element => {
+            element.value = ""
+        });
+
+        document.getElementById("d1").src="HW2/pix/diceX0.gif"
+        document.getElementById("d2").src="HW2/pix/diceX0.gif"
+        document.getElementById("d3").src="HW2/pix/diceX0.gif"
+        document.getElementById("d4").src="HW2/pix/diceX0.gif"
+        document.getElementById("d5").src="HW2/pix/diceX0.gif"
+    }
+</script>
+
+</html>

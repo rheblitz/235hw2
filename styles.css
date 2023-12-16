@@ -1,0 +1,52 @@
+.container{
+    position: relative;
+    width: 100%;
+    text-align: center;
+}
+
+.content{
+    background-color: rgb(233, 233, 233);
+    height: 700px;
+    padding: 40px;
+}
+
+.left{
+    float: left;
+    width: 700px;
+    vertical-align: top;
+}
+
+.right{
+    display: inline-block;
+    vertical-align: top;
+}
+.slot{
+    width: 20%;
+    text-align: right;
+    font-family: sans-serif;
+    margin: 10px;
+}
+
+.button{
+    width: fit-content;
+    padding: 5px;
+    background-color: rgb(105, 25, 170);
+    color: white;
+    border-style: outset;
+    margin-top: 50px;
+}
+
+.button2{
+    width: fit-content;
+    padding: 5px;
+    background-color: rgb(180, 199, 197);
+    color: darkblue;
+    border-style: outset;
+    border-color: white;
+    margin-top: 50px;
+}
+
+.yahtzeeTracker{
+    float: left;
+    background-color: lavender;
+}
